@@ -1,0 +1,14 @@
+<!-- taskapp/templates/task_list.html -->
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Task List</title>
+</head>
+<body>
+<ul>
+{% for task in tasks %}
+<li>{{ task }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>
