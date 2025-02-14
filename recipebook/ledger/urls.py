@@ -6,7 +6,6 @@ urlpatterns = [
     path('task_list/', task_list, name='task_list'),
     path('Recipe_1/', recipe_1, name = 'Recipe_1'),
     path('Recipe_2/', recipe_2, name = 'Recipe_2'),
-    
     ]
 
 app_name = 'ledger'
