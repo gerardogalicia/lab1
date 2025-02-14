@@ -1,6 +1,5 @@
 from django.urls import path
 from .views import index, task_list
-# from .views import task_list
 
 urlpatterns = [
     path('', index, name='index'),
