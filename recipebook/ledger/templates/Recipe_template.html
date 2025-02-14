@@ -9,12 +9,13 @@
 </head>
 
 <body>
-
+Cookbook {{name}}
 <ul>
-{% for task in tasks %}
+{% for name in ingredients %}
 
 
-<li>{{ task }}</li>
+<li>Ingredient {{ name }}</li>
+<!-- Quantity {{quantity}} -->
 
 
 {% endfor %}
