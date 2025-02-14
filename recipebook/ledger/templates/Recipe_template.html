@@ -11,12 +11,13 @@
 <body>
 Cookbook {{name}}
 <ul>
-{% for name in ingredients %}
+{% for ingredients in ingredients %}
 
 
-<li>Ingredient {{ name }}</li>
-<!-- Quantity {{quantity}} -->
+<li>Ingredient: {{ingredients.name}}</li>
 
+<li>Quantity: {{ingredients.quantity}}</li>
+---
 
 {% endfor %}
 </ul>
