@@ -82,7 +82,7 @@ def recipe_index(request):
         }
     ]
 }
-    return (HttpResponse(render(request, 'Recipe_template.html', recipe_context,)))
+    return (HttpResponse(render(request, 'Recipe_List_Context.html', recipe_context,)))
 
 
 
