@@ -16,3 +16,11 @@ def task_list(request):
     ]
 }
     return (HttpResponse(render(request, 'task_list.html', ctx,)))
+
+
+
+def recipe_1(request):
+    return (HttpResponse(render(request, 'Recipe_1.html', {'name': 'quantity'})))
+
+def recipe_2(request):
+    return (HttpResponse(render(request, 'Recipe_2.html', {'name': 'quantity'})))
