@@ -58,7 +58,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
 
         # This Dirs file might be a cause of errors, Replace the thing with an empty bracket [] 
-        # For troubleshooting os.path.join(BASE_DIR, 'templates')
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
