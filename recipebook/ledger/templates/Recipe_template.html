@@ -9,9 +9,9 @@
 </head>
 
 <body>
-Cookbook {{name}}
+
 <ul>
-{% for ingredients in ingredients %}
+{% for ingredient in ingredients %}
 <li>Ingredient: {{ingredient.name}}</li>
 <li>Quantity: {{ingredient.quantity}}</li>
 ---
@@ -19,7 +19,7 @@ Cookbook {{name}}
 
 <a href='http://localhost:8000/Recipe/1'> <br>Recipe 1</a>
 <a href='http://localhost:8000/Recipe/2'> <br>Recipe 2</a>
-<a href='http://localhost:8000/Recipes'> <br>Recipe list</a>
+<a href='http://localhost:8000/Recipes/list'> <br>Recipe list</a>
 </ul>
 </body>
 </html>
