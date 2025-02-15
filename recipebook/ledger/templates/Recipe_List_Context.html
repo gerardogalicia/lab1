@@ -9,16 +9,10 @@
 </head>
 
 <body>
-Cookbook for {{name}}
 <ul>
-{% for recipe in recipes %}
-<li>{{recipe.name}}</li>
-<li>{{recipe.name.quantity}}</li>
-
----
-{% endfor %}
-
-<a href=“{{Recipe}}”>{{recipe.name}}</a>
+<a href='http://localhost:8000/Recipe/1'> <br>Recipe 1</a>
+<a href='http://localhost:8000/Recipe/2'> <br>Recipe 2</a>
+<a href='http://localhost:8000/Recipes'> <br>Recipe list</a>
 </ul>
 </body>
 </html>

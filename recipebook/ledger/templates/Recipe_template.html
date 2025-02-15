@@ -12,11 +12,14 @@
 Cookbook {{name}}
 <ul>
 {% for ingredients in ingredients %}
-<li>Ingredient: {{ingredients.name}}</li>
-<li>Quantity: {{ingredients.quantity}}</li>
+<li>Ingredient: {{ingredient.name}}</li>
+<li>Quantity: {{ingredient.quantity}}</li>
 ---
-
 {% endfor %}
+
+<a href='http://localhost:8000/Recipe/1'> <br>Recipe 1</a>
+<a href='http://localhost:8000/Recipe/2'> <br>Recipe 2</a>
+<a href='http://localhost:8000/Recipes'> <br>Recipe list</a>
 </ul>
 </body>
 </html>

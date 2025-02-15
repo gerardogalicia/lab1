@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse('Hello World! This came from the index view')
+    return HttpResponse('This is the index view. You are likely looking for something else.')
 # Create your views here.
 
 def task_list(request):
