@@ -9,10 +9,14 @@ class RecipeAdmin(admin.ModelAdmin):
 class IngredientAdmin(admin.ModelAdmin):
     model = Ingredient
 
-class RecipeIngredientAdmin(admin.ModelAdmin):
-    model = RecipeIngredient
+# class RecipeIngredientAdmin(admin.ModelAdmin):
+#     model = RecipeIngredient
 
 # registering the model and the admin is what tells
 # Django that admin pages must be generated for the models specified
-admin.site.register(RecipeAdmin, IngredientAdmin ,RecipeIngredientAdmin)
-admin.site.register(Recipe, Ingredient, RecipeIngredient)
+admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(Ingredient, IngredientAdmin)
+
+# SITE LOGIN INFO DELETE ONCE DONE
+# USER: admin
+# Password: admin
