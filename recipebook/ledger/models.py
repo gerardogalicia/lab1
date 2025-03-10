@@ -3,6 +3,13 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 # Create your models here.
 
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    bio = models.TextField(blank=True)
+
 class Recipe(models.Model):
     name = models.CharField(max_length=50)
     def __str__(self):
@@ -13,7 +20,7 @@ class Recipe(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     # Refreshes with any changes made.
     last_updated = models.DateTimeField(auto_now=True)
-    author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='User')
+    author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
 
 
 class Ingredient(models.Model):
@@ -39,7 +46,3 @@ class RecipeIngredient(models.Model):
         related_name='ingredients',
     )
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50)
-    bio = models.TextField(blank=True)
