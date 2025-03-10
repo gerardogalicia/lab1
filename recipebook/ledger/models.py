@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Recipe(models.Model):
@@ -31,4 +32,7 @@ class RecipeIngredient(models.Model):
         on_delete=models.CASCADE, 
         related_name='ingredients',
     )
-    
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
