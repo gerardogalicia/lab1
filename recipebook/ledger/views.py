@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Recipe
-
+from django.contrib.auth.decorators import login_required
 
 def recipes_lists(request):
     recipes = Recipe.objects.all()
@@ -15,6 +15,9 @@ def recipe_detail(request, id):
 
 
 
+@login_required
+def view_function(request):
+    print("Login code worked")
 
 
 

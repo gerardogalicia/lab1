@@ -9,6 +9,12 @@ class Recipe(models.Model):
         return self.name
     def get_absolute_url(self):
         return reverse('recipe_detail', args=[str(self.id)])
+    # Gets made only once, when the model is created
+    created_on = models.DateTimeField(auto_now_add=True)
+    # Refreshes with any changes made.
+    last_updated = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='User')
+
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=50)
@@ -35,4 +41,5 @@ class RecipeIngredient(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
     bio = models.TextField(blank=True)
