@@ -17,8 +17,8 @@ def recipe_detail(request, id):
 
 @login_required
 def view_function(request):
-    print("Login code worked")
-
+    return render(request, "ledger/registration.html")
+  
 
 
 

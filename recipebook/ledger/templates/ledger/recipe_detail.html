@@ -16,6 +16,12 @@
                     Quantity: {{ ingredient.quantity }}</li>
                     ---
             {% endfor %}
+                    <br>
+            Recipe by: {{recipe.Author}}
+            <br>
+            Page created: {{recipe.created_on}}
+            <br>
+            Last updated: {{recipe.last_updated}}
         </h3>
         </ul>
     </main>
