@@ -7,7 +7,7 @@ from .models import Profile
 
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
-    list_display = ('id', 'name')
+    list_display = ('id', 'name', 'created_on', 'last_updated', 'Author')
     search_fields = ('name',)
     
 

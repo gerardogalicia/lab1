@@ -7,8 +7,10 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50)
+    author = models.CharField(max_length=50)
     bio = models.TextField(blank=True)
+    def __str__(self):
+        return self.author
 
 class Recipe(models.Model):
     name = models.CharField(max_length=50)
@@ -16,11 +18,16 @@ class Recipe(models.Model):
         return self.name
     def get_absolute_url(self):
         return reverse('recipe_detail', args=[str(self.id)])
+    
+
     # Gets made only once, when the model is created
     created_on = models.DateTimeField(auto_now_add=True)
+
     # Refreshes with any changes made.
     last_updated = models.DateTimeField(auto_now=True)
-    author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
+    
+    # Should this be a foreign key????
+    Author = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, related_name='profile_name')
 
 
 class Ingredient(models.Model):
@@ -45,4 +52,4 @@ class RecipeIngredient(models.Model):
         on_delete=models.CASCADE, 
         related_name='ingredients',
     )
-
+# boatboatboat
