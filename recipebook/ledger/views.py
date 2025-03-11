@@ -14,7 +14,7 @@ def recipe_detail(request, id):
     return render(request, 'ledger/recipe_detail.html', ctx)
 
 
-
+# Login required view
 @login_required
 def view_function(request):
     return render(request, "ledger/registration.html")

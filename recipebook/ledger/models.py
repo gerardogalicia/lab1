@@ -8,7 +8,8 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     author = models.CharField(max_length=50)
-    bio = models.TextField(blank=True)
+    bio = models.TextField(blank=True) # Max Length is supposed to be over 255 chars according to specs
+
     def __str__(self):
         return self.author
 
@@ -26,7 +27,6 @@ class Recipe(models.Model):
     # Refreshes with any changes made.
     last_updated = models.DateTimeField(auto_now=True)
     
-    # Should this be a foreign key????
     Author = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, related_name='profile_name')
 
 

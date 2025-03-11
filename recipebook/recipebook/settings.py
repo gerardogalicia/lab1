@@ -115,6 +115,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Sets default login and logout url redirects
 LOGIN_REDIRECT_URL = "/recipes/list"
 LOGOUT_REDIRECT_URL = "/accounts/login"
 
