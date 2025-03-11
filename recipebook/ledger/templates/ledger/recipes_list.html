@@ -10,6 +10,16 @@
                 <a href="{% url 'ledger:recipe_detail' recipe.id %}">{{ recipe.name }}</a>
             </li>
         {% endfor %}
+
+        {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Logout</button>
+            </form>
+        {% endif %}
+
+
     </main>
 </body>
 </html>

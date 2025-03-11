@@ -17,11 +17,27 @@
                     ---
             {% endfor %}
                     <br>
-            Recipe by: {{recipe.Author}}
-            <br>
             Page created: {{recipe.created_on}}
             <br>
+            
             Last updated: {{recipe.last_updated}}
+
+
+
+            {% if user.is_authenticated %}
+            <br>
+            THIS TEXT SHOULD ONLY BE VIEWABLE IF LOGGED IN
+            <br>
+            Recipe by: {{recipe.Author}}
+
+
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Logout</button>
+                </form>
+
+            {% endif %}
         </h3>
         </ul>
     </main>
