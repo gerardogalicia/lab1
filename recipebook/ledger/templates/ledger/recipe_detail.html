@@ -3,8 +3,22 @@
 <body>
     <header>
         <h1>Recipe Book</h1>
+        <h2>Recipe {{recipe.id}}</h2>
+        {% if user.is_authenticated %}
+        <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Logout</button>
+        </form>
+    {% else %}
+    <a href="{% url 'login' %}">Login </a>
+    {% endif %}
+
+    
+
     </header>
     <main>
+        {% if user.is_authenticated %}
         <h1>{{ recipe.name }}</h1>
         <h2>Ingredients:</h2>
         <h3>
@@ -22,22 +36,23 @@
             
             Last updated: {{recipe.last_updated}}
 
-
-
-            {% if user.is_authenticated %}
-            <br>
-            THIS TEXT SHOULD ONLY BE VIEWABLE IF LOGGED IN
             <br>
             Recipe by: {{recipe.Author}}
-
 
             <form method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Logout</button>
                 </form>
+            
 
             {% endif %}
+            You are not logged in, please log in to see the content.
+            <br>
+            
+            <a href="{% url 'login' %}">Login </a>
+
+
         </h3>
         </ul>
     </main>
