@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 
 
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     author = models.CharField(max_length=50)
@@ -55,3 +56,22 @@ class RecipeIngredient(models.Model):
         on_delete=models.CASCADE, 
         related_name='ingredients',
     )
+
+
+
+
+# Create a RecipeImage model, which has the following fields:
+# Image, that should not be allowed to be empty
+# Description that is no more than 255 characters long
+# Foreign Key to the Recipe model, with an appropriate related_name attribute
+
+class RecipeImage(models.Model):
+    image = models.ImageField(upload_to='images/', null=False)
+    description = models.Case(max_length=255)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='recipe'
+    )
+
+    # ToDo: HTML stuff
