@@ -1,7 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-    <header>
+{% extends 'base.html' %}
+
+{% load static %}
+{% block page_title %}{{ recipe.name }}{% endblock %}
+{% block style %}<style>  </style>{% endblock %}
+{% block main %}
+
         <h1>Recipe Book</h1>
         <h2>Recipe List Page</h2>
     {% if user.is_authenticated %}
@@ -28,5 +31,4 @@
 
 
     </main>
-</body>
-</html>
+{% endblock %}

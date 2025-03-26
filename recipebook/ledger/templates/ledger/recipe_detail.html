@@ -1,7 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-    <header>
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block page_title %}{{ recipe.name }}{% endblock %}
+{% block style %}<style>  </style>{% endblock %}
+{% block main %}
+
+
         <h1>Recipe Book</h1>
         <h2>Recipe {{recipe.id}}</h2>
         {% if user.is_authenticated %}
@@ -15,8 +21,15 @@
     {% endif %}
     
     </header>
+
+
     <main>
         {% if user.is_authenticated %}
+
+
+       
+
+
         <h1>{{ recipe.name }}</h1>
         <h2>Ingredients:</h2>
         <h3>
@@ -39,11 +52,14 @@
                 You are not logged in, please log in to see the content.
                 {% endif %}
             <br>
-            
+                    
+        <a href="{% url 'ledger:recipes_lists' %}">Back To List</a> 
+                    
 
+        {% if object.recipeimage %}
+        <img src="{{ object.recipeimage.url }}" alt="">
+        {% endif %}
 
         </h3>
         </ul>
-    </main>
-</body>
-</html>
+{% endblock %}

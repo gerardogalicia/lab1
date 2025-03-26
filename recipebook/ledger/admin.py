@@ -4,12 +4,18 @@ from ledger.models import Ingredient, Recipe, RecipeIngredient, Profile, RecipeI
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
-# Updated To include author and date fields in list display
+
+class RecipeInLine (admin.TabularInline):
+    model = RecipeIngredient
+
+class ImageInline(admin.StackedInline):
+    #Inline for Recipe Images
+    model = RecipeImage
+
 class RecipeAdmin(admin.ModelAdmin):
+    #Class that manages Recipe deteils
     model = Recipe
-    list_display = ('id', 'name', 'created_on', 'last_updated', 'Author')
-    search_fields = ('name',)
-    
+    inlines = [RecipeInLine, ImageInline]    
 
 class ProfileInline(admin.StackedInline):
     model = Profile
@@ -20,8 +26,6 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Ingredient)
-admin.site.register(RecipeIngredient)
-admin.site.register(RecipeImage)
 
 # unregisters any existing User before reregistering
 admin.site.unregister(User)

@@ -3,12 +3,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 # Create your models here.
 
-
-
-
-
-
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     author = models.CharField(max_length=50)
@@ -22,7 +16,7 @@ class Recipe(models.Model):
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        return reverse('recipe_detail', args=[str(self.id)])
+        return reverse('recipe_detail', args=[str(self.pk)])
     
 
     # Gets made only once, when the model is created
@@ -41,7 +35,7 @@ class Ingredient(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('ingredient_detail', args=[str(self.id)])
+        return reverse('ingredient_detail', args=[str(self.pk)])
 
 class RecipeIngredient(models.Model):
     quantity = models.CharField(max_length=100)
@@ -66,12 +60,12 @@ class RecipeIngredient(models.Model):
 # Foreign Key to the Recipe model, with an appropriate related_name attribute
 
 class RecipeImage(models.Model):
-    image = models.ImageField(upload_to='images/', null=False)
-    description = models.Case(max_length=255)
+    image = models.ImageField(upload_to='images/', default=None)
+    description = models.CharField(max_length=255, null=True)
     recipe = models.ForeignKey(
         Recipe,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        null=True,
         related_name='recipe'
     )
-
-    # ToDo: HTML stuff
+    uploader = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
