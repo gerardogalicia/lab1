@@ -33,9 +33,9 @@ class CreateRecipeImage(CreateView):
         template_name = 'ledger/imageadd.html'
         form_class = RecipeImageForm
 
-
         def get_success_url(self):
             return reverse_lazy('ledger:recipes_lists')
+            
         
 
     
