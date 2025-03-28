@@ -47,6 +47,15 @@
             Last updated: {{recipe.last_updated}}
             <br>
             Recipe by: {{recipe.Author}}
+
+
+            <a href="{% url 'ledger:addimage' recipe.id %}">Add images</a> 
+
+            {% if object.recipe.all %}
+                {% for recipe_image in object.recipe.all %}
+                    <img src="{{ recipe_image.image.url }}" alt="">
+                {% endfor %}
+            {% endif %}
             
             {% else %}
                 You are not logged in, please log in to see the content.
@@ -54,13 +63,7 @@
             <br>
                     
         <a href="{% url 'ledger:recipes_lists' %}">Back To List</a> 
-        <a href="{% url 'ledger:addimage' recipe.id %}">Add images</a> 
-
-        {% if object.recipe.all %}
-            {% for recipe_image in object.recipe.all %}
-                <img src="{{ recipe_image.image.url }}" alt="">
-            {% endfor %}
-        {% endif %}
+      
 
         </h3>
         </ul>
